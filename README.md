@@ -66,9 +66,38 @@ Bonus: Bubbles spawn within a determined range of x positions. They always spawn
 Demo:
 Bonus: If no game is started after 600 frames or 10 seconds, a demo game begins and the player is controlled by AI (bad AI). The demo is cancelled and the user is returned to the title screen on any key press or screen tap.
 
+# Wireframes
+
+![](https://github.com/peterniemeier/test/blob/master/ui4.jpg)
+
+***
+
+
+![](https://github.com/peterniemeier/test/blob/master/ui5.jpg)
+
+
+***
+
+
+![](https://github.com/peterniemeier/test/blob/master/ui6.jpg)
+
+
+***
+
 
 # Architecture and Technologies
 
 Javascript Canvas will be used for the ease of animating and displaying sprites.
 The remaining game logic will all be handled using javascript.
 The entire project will exist on one page and will utilize HTML and CSS.
+
+# Timeline
+
+* Monday:
+Asset generation (images/audio).
+* Tuesday: Canvas initialization, title screen, game initialization, scrolling background.
+* Wednesday: Player creation, balloon creation, star creation, fish creation.
+* Thursday: Collision.
+* Friday: Score mechanics.
+* Saturday: Mobile mechanics.
+* Sunday: Controls and page styling.
