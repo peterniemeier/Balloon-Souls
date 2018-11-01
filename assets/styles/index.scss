@@ -1,0 +1,40 @@
+// Apply a natural box layout model to all elements
+// but allowing components to change
+// http://www.paulirish.com/2012/box-sizing-border-box-ftw/
+
+@font-face {
+  font-family: "PressStart2P-Regular";
+  src: url("~/assets/fonts/pressstart2p-regular-webfont.woff");
+  src: url("~/assets/fonts/pressstart2p-regular-webfont.woff2");
+}
+
+html {
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+#balloon_souls_canvas {
+  margin-left:auto;
+  margin-right:auto;
+}
+
+.content {
+  display:flex;
+}
+#btnStart {
+  margin-left:auto;
+  margin-right:auto;
+}
+
+#title {
+  text-align: center;
+}
+
+
+
+.eightbit {
+  font-family: 'PressStart2P-Regular', Arial, sans-serif;
+  color: blue;
+}
