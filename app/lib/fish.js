@@ -1,5 +1,6 @@
 const MovingObject = require("./moving_object");
 const Util = require("./util");
+const Player = require("./player");
 
 function randomColor() {
   const hexDigits = "0123456789ABCDEF";
@@ -29,8 +30,6 @@ class Fish extends MovingObject {
     this.numberOfFrames = 6,
     this.ticksPerFrame = 8,
     this.fishImage = fishImage;
-    this.flapping = false;
-    this.flapCount = 0;
   }
 
   // fireBullet() {
@@ -60,12 +59,8 @@ class Fish extends MovingObject {
   //   this.game.add(bullet);
   // }
 
-  power(impulse) {
-    this.vel[0] += impulse[0];
-    this.vel[1] += impulse[1];
-  }
-  move() {
 
+  move() {
   }
 
   update() {
@@ -80,18 +75,15 @@ class Fish extends MovingObject {
       } else {
           this.frameIndex = 0;
           this.game.fish = [];
-
       }
     }
-
-
   }
 
   draw(ctx) {
-    // ctx.fillStyle = this.color;
+
     this.update();
     // ctx.clearRect(0, 0, this.width, this.height);
-
+    // ctx.fillStyle = "rgba(255, 255, 255, 0.5)";
     ctx.beginPath();
     ctx.arc(
       this.pos[0], this.pos[1], this.radius, 0, 2 * Math.PI, true
@@ -113,60 +105,24 @@ class Fish extends MovingObject {
     }
 
   }
-
-  moveMe(timeDelta) {
-    // timeDelta is number of milliseconds since last move
-    // if the computer is busy the time delta will be larger
-    // in this case the MovingObject should move farther in this frame
-    // velocity of object is how far it should move in 1/60th of a second
-    const velocityScale = timeDelta / NORMAL_FRAME_TIME_DELTA,
-        offsetX = this.vel[0] * velocityScale,
-        offsetY = this.vel[1] * velocityScale;
-    this.pos = [this.pos[0] + offsetX, this.pos[1] + 3 + offsetY];
-    if(this.vel[0] < 0 && this.flapping == false) {
-      this.fishImage.src="../assets/images/player-left.png"
-    } else if (this.vel[0] > 0 && this.flapping == false){
-      this.fishImage.src="../assets/images/player-right.png"
-    }
-    if (this.game.isOutOfBounds(this.pos)) {
-      if (this.isWrappable) {
-        this.pos = this.game.wrap(this.pos);
-      } else {
-        this.remove();
+  collideWith(otherObject) {
+    if (otherObject instanceof Player) {
+      if (this.frameIndex === 3) {
+        otherObject.game.gameOver();
+        return true;
       }
     }
-  }
-  flap() {
-    this.vel[1] -= 10;
-    this.flapping = true;
-    if(this.vel[0] < 0) {
-      this.fishImage.src="../assets/images/player-left-flap.png"
-    } else if (this.vel[0] > 0) {
-      this.fishImage.src="../assets/images/player-right-flap.png"
-    } else if (this.vel[0] == 0) {
-      this.fishImage.src="../assets/images/player-left-flap.png"
-    }
+    //  else if (otherObject instanceof Bullet) {
+    //   this.remove();
+    //   otherObject.remove();
+    //   return true;
+    // }
+
+    return false;
   }
 
-  decayVel() {
-    if (this.vel[0] > 5) {
-      this.vel[0] -= 1;
-    }
-    if (this.vel[0] < -5) {
-      this.vel[0] += 1;
-    }
-    if (this.vel[1] < 0) {
-      this.vel[1] += 1;
-    }
-    if (this.vel[1] < -10) {
-      this.vel[1] += 10;
-    }
-  }
 
-  relocate() {
-    this.pos = this.game.randomPosition();
-    this.vel = [0, 0];
-  }
+
 }
 const NORMAL_FRAME_TIME_DELTA = 1000 / 60;
 Fish.RADIUS = 15;

@@ -87,14 +87,16 @@ class Player extends MovingObject {
   }
 
   draw(ctx) {
-    ctx.fillStyle = this.color;
     this.update();
     // ctx.clearRect(0, 0, this.width, this.height);
+    // ctx.fillStyle = "rgba(255, 255, 255, 0.5)";
     ctx.beginPath();
-    // ctx.arc(
-    //   this.pos[0], this.pos[1], this.radius, 0, 2 * Math.PI, true
-    // );
+    ctx.arc(
+      this.pos[0], this.pos[1], this.radius, 0, 2 * Math.PI, true
+    );
+    ctx.closePath();
     // ctx.fill();
+    // ctx.fillStyle = '#000';
     this.flapCount += 1;
     if(this.flapCount > 45 && this.flapping == true && (this.vel[0] < 0 || this.vel[0] == 0)) {
       this.flapCount = 0
@@ -114,7 +116,7 @@ class Player extends MovingObject {
 	    this.width / this.numberOfFrames,
 	    this.height,
 	    this.pos[0] - 33,
-	    this.pos[1] - 60,
+	    this.pos[1] - 50,
 	    this.width / this.numberOfFrames,
 	    this.height);
     return this;
@@ -179,5 +181,5 @@ class Player extends MovingObject {
   }
 }
 const NORMAL_FRAME_TIME_DELTA = 1000 / 60;
-Player.RADIUS = 15;
+Player.RADIUS = 25;
 module.exports = Player;

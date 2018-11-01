@@ -6,6 +6,11 @@ const Fish = require("./fish");
 
 class Game {
   constructor() {
+    this.score = 0;
+    this.hello = Game.HELLO;
+    this.died = Game.DIED;
+    this.width = Game.DIM_X;
+    this.height = Game.DIM_Y;
     this.fish = [];
     this.water = [];
     this.player = [];
@@ -19,8 +24,6 @@ class Game {
       this.water.push(object);
     } else if (object instanceof Fish) {
       this.fish.push(object);
-    } else if (object instanceof Ship) {
-      this.ships.push(object);
     } else if (object instanceof Player) {
       this.player.push(object);
     } else if (object instanceof Star) {
@@ -59,6 +62,7 @@ class Game {
   }
 
   addPlayer() {
+    this.hello.play();
     const player = new Player({
       pos: this.setPosition(),
       game: this
@@ -80,20 +84,14 @@ class Game {
     return fish;
   }
 
-  addShip() {
-    const ship = new Ship({
-      pos: this.setPosition(),
-      game: this
-    });
-
-    this.add(ship);
-
-    return ship;
-  }
 
   allObjects() {
     // console.log(this.player[0]);
+    if (this.fish[0] !== undefined) {
     return [].concat(this.stars, this.player[0],this.fish[0]);
+  } else {
+    return [].concat(this.stars, this.player[0]);
+    }
   }
 
   allStaticObjects() {
@@ -103,17 +101,18 @@ class Game {
 
   checkCollisions() {
     const allObjects = this.allObjects();
-    for (let i = 0; i < allObjects.length; i++) {
-      for (let j = 0; j < allObjects.length; j++) {
-        const obj1 = allObjects[i];
-        const obj2 = allObjects[j];
+      for (let i = 0; i < allObjects.length; i++) {
+        for (let j = 0; j < allObjects.length; j++) {
+            const obj1 = allObjects[i];
+            const obj2 = allObjects[j];
+            if (obj1.isCollidedWith(obj2)) {
+              const collision = obj1.collideWith(obj2);
+              if (collision) return;
+            }
 
-        // if (obj1.isCollidedWith(obj2)) {
-        //   const collision = obj1.collideWith(obj2);
-        //   if (collision) return;
-        // }
+        }
       }
-    }
+
   }
 
   draw(ctx) {
@@ -182,8 +181,18 @@ class Game {
 
   step(delta) {
     this.moveObjects(delta);
-
     this.checkCollisions();
+    document.getElementById("score").innerHTML = "SCORE: " + (this.score += 20);
+  }
+
+  gameOver(){
+    document.getElementById("youDied").style.display = "inherit";
+    // document.getElementById("score").style.display = "none";
+    this.score = 0;
+    document.getElementById("score").innerHTML = "SCORE: " + (this.score);
+    document.getElementById("btnStart").innerHTML = "Click screen to begin anew";
+    this.died.play();
+
   }
 
   wrap(pos) {
@@ -192,7 +201,10 @@ class Game {
     ];
   }
 }
-
+Game.HELLO = new Audio("../assets/temp/hello.wav.mp3");
+Game.HELLO.volume = 0.10;
+Game.DIED = new Audio("../assets/temp/thrudeath.wav.mp3");
+Game.DIED.volume = 0.50;
 // Game.BG_COLOR = "#000000";
 Game.DIM_X = 1000;
 Game.DIM_Y = 600;

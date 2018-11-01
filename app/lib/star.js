@@ -1,15 +1,16 @@
 const Util = require("./util");
 const MovingObject = require("./moving_object");
+const Player = require("./player");
 
 const DEFAULTS = {
   COLOR: "#FFFFFF",
-  RADIUS: 20,
+  RADIUS: 15,
   SPEED: 4
 };
 
 class Star extends MovingObject {
   constructor(options = {}) {
-    // options.color = DEFAULTS.COLOR;
+    options.color = DEFAULTS.COLOR;
     options.pos = options.pos || options.game.randomPosition();
     options.radius = DEFAULTS.RADIUS;
     options.vel = options.vel || Util.randomVec(DEFAULTS.SPEED);
@@ -69,13 +70,18 @@ class Star extends MovingObject {
   }
 
   draw(ctx) {
-    ctx.fillStyle = this.color;
+
+
     this.update();
+    // ctx.clearRect(0, 0, this.width, this.height);
+    // ctx.fillStyle = "rgba(255, 255, 255, 0.5)";
     ctx.beginPath();
     ctx.arc(
       this.pos[0], this.pos[1], this.radius, 0, 2 * Math.PI, true
     );
+    ctx.closePath();
     // ctx.fill();
+    // ctx.fillStyle = '#000';
 
 
         ctx.drawImage(
@@ -84,21 +90,24 @@ class Star extends MovingObject {
     	    0,
     	    this.width / this.numberOfFrames,
     	    this.height,
-    	    this.pos[0] - 33,
-    	    this.pos[1] - 60,
+    	    this.pos[0] - 9,
+    	    this.pos[1] - 9,
     	    this.width / this.numberOfFrames,
     	    this.height);
         return this;
   }
+
+
   collideWith(otherObject) {
-    if (otherObject instanceof Ship) {
-      otherObject.relocate();
-      return true;
-    } else if (otherObject instanceof Bullet) {
-      this.remove();
-      otherObject.remove();
+    if (otherObject instanceof Player) {
+      otherObject.game.gameOver();
       return true;
     }
+    //  else if (otherObject instanceof Bullet) {
+    //   this.remove();
+    //   otherObject.remove();
+    //   return true;
+    // }
 
     return false;
   }

@@ -5,6 +5,7 @@ const Game = require("./game");
 
 class GameView {
   constructor(game, ctx) {
+    console.log(game);
     this.ctx = ctx;
     this.game = game;
 
@@ -40,7 +41,7 @@ class GameView {
 
     animate(time) {
       const timeDelta = time - this.lastTime;
-      console.log(this.game.fish[0]);
+
       this.game.step(timeDelta);
       this.game.draw(this.ctx);
       this.lastTime = time;
