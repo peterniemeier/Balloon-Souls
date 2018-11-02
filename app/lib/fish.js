@@ -107,7 +107,7 @@ class Fish extends MovingObject {
   }
   collideWith(otherObject) {
     if (otherObject instanceof Player) {
-      if (this.frameIndex === 3) {
+      if (this.frameIndex === 2) {
         otherObject.game.gameOver();
         return true;
       }

@@ -33,21 +33,24 @@ class GameView {
   }
 
   start() {
+
     this.bindKeyHandlers();
     this.lastTime = 0;
     // start the animation
-    requestAnimationFrame(this.animate.bind(this));
+    window.animation = requestAnimationFrame(this.animate.bind(this));
   }
 
     animate(time) {
-      const timeDelta = time - this.lastTime;
+      if (window.animation){
+        const timeDelta = time - this.lastTime;
 
-      this.game.step(timeDelta);
-      this.game.draw(this.ctx);
-      this.lastTime = time;
+        this.game.step(timeDelta);
+        this.game.draw(this.ctx);
+        this.lastTime = time;
 
-      // every call to animate requests causes another call to animate
-      requestAnimationFrame(this.animate.bind(this));
+        // every call to animate requests causes another call to animate
+        window.animation = requestAnimationFrame(this.animate.bind(this));
+      }
     }
 
 }

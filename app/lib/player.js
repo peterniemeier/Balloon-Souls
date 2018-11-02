@@ -21,6 +21,7 @@ class Player extends MovingObject {
     let playerImage = new Image();
     playerImage.src = '../assets/images/player-left.png'
     super(options);
+    this.isWrappable = false;
     this.frameIndex = 0,
     this.tickCount = 0,
     this.width = 193,
@@ -130,6 +131,21 @@ class Player extends MovingObject {
     const velocityScale = timeDelta / NORMAL_FRAME_TIME_DELTA,
         offsetX = this.vel[0] * velocityScale,
         offsetY = this.vel[1] * velocityScale;
+    if (this.pos[1] < 20) {
+      this.pos[1] = 20;
+    }
+    if (this.pos[0] < 10) {
+      this.vel[0] = 2;
+      this.pos[0] = 10;
+    }
+    if (this.pos[0] > 990) {
+      this.vel[0] = -2;
+      this.pos[0] = 990;
+    }
+    if (this.pos[1] > 590) {
+      this.pos[1] = 590;
+      this.game.gameOver();
+    }
     this.pos = [this.pos[0] + offsetX, this.pos[1] + 3 + offsetY];
     if(this.vel[0] < 0 && this.flapping == false) {
       this.playerImage.src="../assets/images/player-left.png"
@@ -181,5 +197,5 @@ class Player extends MovingObject {
   }
 }
 const NORMAL_FRAME_TIME_DELTA = 1000 / 60;
-Player.RADIUS = 25;
+Player.RADIUS = 21;
 module.exports = Player;

@@ -23,6 +23,7 @@ body {
 
 }
 #ui {
+  display: inline;
   width: 1000px;
   margin-left: auto;
   margin-right: auto;
@@ -38,12 +39,23 @@ justify-content: center;
 
 #title {
   text-align: center;
+  font-size: 4em;
+  left: 21%;
+  top: 20%;
+  position: absolute;
+  text-align: center;
+  background: -webkit-linear-gradient(#eee, #333);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  z-index: 1;
 }
 
 #welcome {
   top: 50%;
-  left: 35%;
+  left: 30%;
+
   position: absolute;
+  text-align: center;
   margin-left: auto;
   margin-right: auto;
 }
@@ -67,8 +79,14 @@ justify-content: center;
   display: none;
   margin-left: 15px;
   margin-bottom: 10px;
-  top: 65px;
-  left: 0px;
+  font-family: 'PressStart2P-Regular', Arial, sans-serif;
+  color: white;
+}
+
+#streak {
+  display: none;
+  margin-left: 15px;
+  margin-bottom: 10px;
   font-family: 'PressStart2P-Regular', Arial, sans-serif;
   color: white;
 }
