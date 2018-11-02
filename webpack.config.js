@@ -35,7 +35,6 @@ module.exports = {
 
         new HtmlWebpackPlugin({
             template: path.join(__dirname, 'index.ejs'),
-            filename: 'index.ejs',
             title: appHtmlTitle
         })
     ],
