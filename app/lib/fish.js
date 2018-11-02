@@ -2,6 +2,7 @@ const MovingObject = require("./moving_object");
 const Util = require("./util");
 const Player = require("./player");
 
+
 function randomColor() {
   const hexDigits = "0123456789ABCDEF";
 
@@ -107,17 +108,11 @@ class Fish extends MovingObject {
   }
   collideWith(otherObject) {
     if (otherObject instanceof Player) {
-      if (this.frameIndex === 2) {
+      if (this.frameIndex === 2)  {
         otherObject.game.gameOver();
         return true;
       }
     }
-    //  else if (otherObject instanceof Bullet) {
-    //   this.remove();
-    //   otherObject.remove();
-    //   return true;
-    // }
-
     return false;
   }
 

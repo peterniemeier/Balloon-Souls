@@ -7,6 +7,7 @@ const Balloon = require("./balloon");
 
 class Game {
   constructor() {
+    this.over = false;
     this.score = 0;
     this.hello = Game.HELLO;
     this.died = Game.DIED;
@@ -128,7 +129,6 @@ class Game {
 
         }
       }
-
   }
 
   draw(ctx) {
@@ -201,11 +201,12 @@ class Game {
     this.checkCollisions();
   }
 
+
   gameOver(){
-    window.cancelAnimationFrame(window.animation);
+    this.over = true;
     this.died.play();
     document.getElementById("youDied").style.display = "inherit";
-    // document.getElementById("score").style.display = "none";
+    document.getElementById("scoreEnd").innerHTML = "Score: " + this.score;
     this.score = 0;
     this.balloonStreak = 0;
     document.getElementById("score").innerHTML = "SCORE: " + (this.score);

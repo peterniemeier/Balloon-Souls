@@ -1,9 +1,10 @@
 const MovingObject = require("./moving_object");
 const Util = require("./util");
 
+
 function randomColor() {
   const hexDigits = "0123456789ABCDEF";
-
+  // Legacy code to test hitbox of player
   let color = "#";
   for (let i = 0; i < 3; i++) {
     color += hexDigits[Math.floor((Math.random() * 16))];
@@ -12,7 +13,6 @@ function randomColor() {
   return '';
 }
 
-//',': 188, '.': 190
 class Player extends MovingObject {
   constructor(options) {
     options.radius = Player.RADIUS;
@@ -33,46 +33,16 @@ class Player extends MovingObject {
     this.flapCount = 0;
   }
 
-  // fireBullet() {
-  //   const norm = Util.norm(this.vel);
-  //
-  //   if (norm === 0) {
-  //     // Can't fire unless moving.
-  //     return;
-  //   }
-  //
-  //   const relVel = Util.scale(
-  //     Util.dir(this.vel),
-  //     Bullet.SPEED
-  //   );
-  //
-  //   const bulletVel = [
-  //     relVel[0] + this.vel[0], relVel[1] + this.vel[1]
-  //   ];
-  //
-  //   const bullet = new Bullet({
-  //     pos: this.pos,
-  //     vel: bulletVel,
-  //     color: this.color,
-  //     game: this.game
-  //   });
-  //
-  //   this.game.add(bullet);
-  // }
-
   power(impulse) {
     this.vel[0] += impulse[0];
     this.vel[1] += impulse[1];
   }
   move() {
-
+    // we use moveMe instead
   }
 
   update() {
-
     this.tickCount += 1;
-
-
     if (this.tickCount > this.ticksPerFrame) {
       this.tickCount = 0;
       // If the current frame index is in range
@@ -83,8 +53,6 @@ class Player extends MovingObject {
           this.frameIndex = 0;
       }
     }
-
-
   }
 
   draw(ctx) {
@@ -152,13 +120,14 @@ class Player extends MovingObject {
     } else if (this.vel[0] > 0 && this.flapping == false){
       this.playerImage.src="../assets/images/player-right.png"
     }
-    if (this.game.isOutOfBounds(this.pos)) {
-      if (this.isWrappable) {
-        this.pos = this.game.wrap(this.pos);
-      } else {
-        this.remove();
-      }
-    }
+    // Commented this shit out because it was causing the game to crash once the player got out of bounds.
+    // if (this.game.isOutOfBounds(this.pos)) {
+    //   if (this.isWrappable) {
+    //     this.pos = this.game.wrap(this.pos);
+    //   } else {
+    //     this.remove();
+    //   }
+    // }
 
     if (this.pos[1] > 500 && this.game.fish[0] === undefined) {
       this.game.addFish();

@@ -4,13 +4,13 @@ const Player = require("./player");
 
 const DEFAULTS = {
   COLOR: "#FFFFFF",
-  RADIUS: 15,
+  RADIUS: 13,
   SPEED: 4
 };
 
 class Star extends MovingObject {
   constructor(options = {}) {
-    options.color = DEFAULTS.COLOR;
+    options.color = options.color || DEFAULTS.COLOR;
     options.pos = options.pos || options.game.randomPosition();
     options.radius = DEFAULTS.RADIUS;
     options.vel = options.vel || Util.randomVec(DEFAULTS.SPEED);
@@ -56,8 +56,7 @@ class Star extends MovingObject {
 
     this.pos = [this.pos[0] + offsetX, this.pos[1] + offsetY];
 
-    if (this.pos[0] > 1000) {
-
+    if (this.pos[0] >= 1000) {
       this.remove();
     }
     if (this.game.isOutOfBounds(this.pos)) {
@@ -103,12 +102,6 @@ class Star extends MovingObject {
       otherObject.game.gameOver();
       return true;
     }
-    //  else if (otherObject instanceof Bullet) {
-    //   this.remove();
-    //   otherObject.remove();
-    //   return true;
-    // }
-
     return false;
   }
 }

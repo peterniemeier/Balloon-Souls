@@ -23,6 +23,7 @@ const Splash = require("./splash");
 document.addEventListener("DOMContentLoaded", () => {
   new Splash();
   document.getElementById("youDied").addEventListener("click", function(){
+    new Splash();
     document.getElementById("youDied").style.display = "none";
   });
 });

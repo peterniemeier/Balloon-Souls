@@ -19,14 +19,29 @@ class Water extends StaticObject {
 
     this.frameIndex = 0,
     this.tickCount = 0,
-    this.width = 100,
+    this.width = 2080,
     this.height = 80,
-    this.numberOfFrames = 1,
-    this.ticksPerFrame = 5,
+    this.numberOfFrames = 2,
+    this.ticksPerFrame = 10,
     this.waterImage = waterImage;
 
   }
   update() {
+
+    this.tickCount += 1;
+
+
+    if (this.tickCount > this.ticksPerFrame) {
+      this.tickCount = 0;
+      // If the current frame index is in range
+      if (this.frameIndex < this.numberOfFrames - 1) {
+          // Go to the next frame
+          this.frameIndex += 1;
+      } else {
+          this.frameIndex = 0;
+      }
+    }
+
 
   }
 
@@ -41,7 +56,19 @@ class Water extends StaticObject {
     //   this.pos[0], this.pos[1], this.radius, 0, 2 * Math.PI, true
     // );
     // ctx.fill();
-    ctx.drawImage(this.waterImage,0,550);
+    this.update();
+    // ctx.drawImage(this.waterImage,0,550);
+    ctx.drawImage(
+      this.waterImage,
+      this.frameIndex * this.width / this.numberOfFrames,
+      0,
+      this.width / this.numberOfFrames,
+      this.height,
+      this.pos[0] = (0 - 50),
+      this.pos[1] = 550,
+      this.width / this.numberOfFrames,
+      this.height);
+    return this;
 
   }
   collideWith(otherObject) {
