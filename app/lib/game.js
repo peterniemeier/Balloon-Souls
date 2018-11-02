@@ -207,12 +207,18 @@ class Game {
     this.died.play();
     document.getElementById("youDied").style.display = "inherit";
     document.getElementById("scoreEnd").innerHTML = "Score: " + this.score;
+    const hi = parseInt(document.getElementById("hi-score-val").innerHTML, 10);
+    console.log(hi);
+    if (this.score > hi){
+      document.getElementById("hi-score-val").innerHTML = this.score;
+    }
     this.score = 0;
     this.balloonStreak = 0;
     document.getElementById("score").innerHTML = "SCORE: " + (this.score);
     document.getElementById("streak").innerHTML = "BALLOON STREAK: " + (this.balloonStreak);
     // document.getElementById("btnStart").innerHTML = "Click screen to begin anew";
-
+    this.ost.pause();
+    this.ost.src = Game.OST = new Audio("../assets/temp/Call to Adventure.mp3");
   }
 
   wrap(pos) {

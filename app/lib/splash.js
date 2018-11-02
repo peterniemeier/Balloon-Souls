@@ -34,8 +34,12 @@ class Splash {
     // check for the correct events
     document.getElementById("score").style.color = "white";
     document.getElementById("streak").style.color = "white";
+    document.getElementById("hi-score").style.color = "white";
+    document.getElementById("hi-score-val").style.color = "white";
         document.getElementById("score").style.display = "inherit";
         document.getElementById("streak").style.display = "inherit";
+        document.getElementById("hi-score").style.display = "inherit";
+        document.getElementById("hi-score-val").style.display = "inherit";
 
         document.getElementById("welcome").style.display = "none";
         document.getElementById("title").style.display = "none";
