@@ -32,14 +32,17 @@ class Splash {
 
   newGame (event) {  // function to start the game when IO is correct
     // check for the correct events
+    document.getElementById("score").style.color = "white";
+    document.getElementById("streak").style.color = "white";
         document.getElementById("score").style.display = "inherit";
         document.getElementById("streak").style.display = "inherit";
+
         document.getElementById("welcome").style.display = "none";
         document.getElementById("title").style.display = "none";
          // remove events
         document.getElementById("balloon_souls_canvas").removeEventListener("click", this.callback);
         document.removeEventListener("keydown", this.callback);
-
+        document.getElementById("getGoing").innerHTML = "";
          let img = new Image();
          img.src = '../assets/images/bg.png';
          img.onload = () => {
@@ -49,7 +52,8 @@ class Splash {
            this.ctx.fillRect(0, 0, this.canvasElw, this.canvasElh); // context.fillRect(x, y, width, height);
          }
          const game = new Game();
-         new GameView(game, this.ctx).start();
+
+         new GameView(game, this.ctx, Splash).start();
 
   }
 

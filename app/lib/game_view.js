@@ -1,14 +1,16 @@
 const Game = require("./game");
-const Splash = require("./splash");
+
 const requestAnimationFrame = window.requestAnimationFrame;
 const cancelAnimationFrame = window.cancelAnimationFrame;
+
 let myReq;
 
 class GameView {
-  constructor(game, ctx) {
+  constructor(game, ctx, Splash) {
     this.ctx = ctx;
-    this.game = game;
+    window.splash = Splash;
 
+    this.game = game;
     this.player = this.game.addPlayer();
     // this.initializeBg();
     this.bg = new Image();
@@ -43,21 +45,39 @@ class GameView {
     animate(time) {
         if (this.game.over === true) {
           // window.cancelAnimationFrame(this.animate.bind(this));
-          myReq = requestAnimationFrame(this.animate);
-
+          myReq = requestAnimationFrame(this.animate.bind(this));
           cancelAnimationFrame(myReq);
+          document.getElementById("score").style.color = "black";
+          document.getElementById("streak").style.color = "black";
 
-          setTimeout(() => {
-            {this.ctx.clearRect(0,0, this.ctx.canvas.width, this.ctx.canvas.height); this.ctx=null; return;}
-            let oldcanv = document.getElementById('balloon_souls_canvas');
-            document.removeChild(oldcanv);
+          setTimeout((function() {
+            document.getElementById("getGoing").innerHTML = "Press any key";
+            // var elem = document.getElementById("balloon_souls_canvas");
+            // elem.parentNode.removeChild(elem);
+            // var canv = document.createElement('canvas');
+            // canv.id = 'balloon_souls_canvas';
+            // document.getElementById("content").appendChild(canv);
+            // document.getElementById("title").style.display = "inherit";
+            // document.getElementById("welcome").style.display = "inherit";
 
-            var canv = document.createElement('canvas');
-            canv.id = 'balloon_souls_canvas';
-            document.body.appendChild(canv);
-          }, 5000);
 
-          this.game.over = false;
+            // document.getElementById("youDied").addEventListener("click", function(){
+            //   new Splash();
+            //   document.getElementById("youDied").style.display = "none";
+            // });
+            const thing = function(){
+
+            if (document.getElementById("youDied").style.display === "inherit") {
+              window.removeEventListener("keydown", thing);
+              document.getElementById("title").style.display = "inherit";
+              document.getElementById("welcome").style.display = "inherit";
+              document.getElementById("youDied").style.display = "none";
+              new this.splash();
+            }
+          }
+            window.addEventListener("keydown", thing);
+        }).bind(this), 3000);
+        this.game.over = false;
         } else {
         const timeDelta = time - this.lastTime;
 
