@@ -13,7 +13,7 @@ class Star extends MovingObject {
     options.color = options.color || DEFAULTS.COLOR;
     options.pos = options.pos || options.game.randomPosition();
     options.radius = DEFAULTS.RADIUS;
-    options.vel = options.vel || Util.randomVec(DEFAULTS.SPEED);
+    options.vel = options.vel || Util.randomVec((3 * Math.random()) + 1);
     super(options);
     let starImage = new Image();
     starImage.src = '../assets/images/stars.png'

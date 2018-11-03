@@ -4,7 +4,7 @@
 const BalloonSouls = require("./lib/balloon_souls");
 
 // Load application styles
-import '../assets/styles/index.scss';
+import '../assets/styles/index.css';
 
 // ================================
 // START YOUR APP HERE
