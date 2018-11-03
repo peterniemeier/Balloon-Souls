@@ -2,11 +2,11 @@
 // but allowing components to change
 // http://www.paulirish.com/2012/box-sizing-border-box-ftw/ */
 
-/* @font-face {
+@font-face {
   font-family: "PressStart2P-Regular";
   src: url("~/assets/fonts/pressstart2p-regular-webfont.woff");
   src: url("~/assets/fonts/pressstart2p-regular-webfont.woff2");
-} */
+}
 
 html {
     box-sizing: border-box;
