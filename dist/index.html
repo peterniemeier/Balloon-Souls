@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width">
-    <link rel="stylesheet" type="text/css" href="../assets/styles/index.css">
-    <link rel="shortcut icon" type="image/png" href="../assets/images/favicon.png"/>
-    <script type="application/javascript" src="../app/vendor/keymaster.js"></script>
+    <link rel="shortcut icon" type="image/png" href="./assets/images/favicon.png"/>
+    <script type="application/javascript" src="./app/vendor/keymaster.js"></script>
     <title>Balloon Souls</title>
 </head>
 <body>
@@ -13,7 +12,7 @@
   <div id="ui">
     <div id="score" >SCORE: </div>
     <div id="streak" >BALLOON STREAK: </div>
-    <div id="in-line"><div id="hi-score" >HI SCORE:</div><div id="hi-score-val">0</div></div>
+    <div class="in-line"><div id="hi-score" >HI SCORE:</div><div id="hi-score-val">0</div></div>
   </div>
   <div id="content">
   <canvas id="balloon_souls_canvas"></canvas>
@@ -24,6 +23,12 @@
       </br></br>
         <span style="color: red">tap "," to float higher!</span>
     </div>
+
+    <img id="bg" src="./assets/images/bg1.jpg" alt="">
+
+    <div id=audio-control>
+      <div id="audio-toggle">AUDIO: ON</div>
+    </div>
     <!-- <div id="btnStart" class="eightbit">Come get some</div> -->
     <div id="youDied" class="animated fadeIn">
       <span>YOU DIED</span></br>
@@ -31,5 +36,5 @@
     <span id="getGoing"></span>
     </div>
 
-<script type="text/javascript" src="./vendor.0fce911c6e14f6daf21c.js"></script><script type="text/javascript" src="./bundle.a8485171a9b6e09ee161.js"></script></body>
+<script type="text/javascript" src="vendor.0fce911c6e14f6daf21c.js"></script><script type="text/javascript" src="bundle.3df8789ca6b3851e2d5f.js"></script></body>
 </html>
