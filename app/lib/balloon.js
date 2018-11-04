@@ -15,7 +15,8 @@ class Balloon extends MovingObject {
     options.radius = DEFAULTS.RADIUS;
     options.vel = options.vel || [1,0];
     super(options);
-    this.pickup = Balloon.PICKUP;
+    window.pickup = this.pickup = Balloon.PICKUP;
+    window.drink = this.drink = Balloon.DRINK;
     if (this.pos[1] >= 400) {
       this.pos[1] = (600 * Math.random());
     }
@@ -109,12 +110,16 @@ class Balloon extends MovingObject {
 
   collideWith(otherObject) {
     if (otherObject instanceof Player) {
-      this.pickup.play();
       this.game.balloonStreak += 1;
-      var node = document.createElement("DIV");
-      var textnode = document.createTextNode(" ");
-      node.appendChild(textnode);
-      document.getElementById("streak").appendChild(node);
+      if ((window.sound === "AUDIO: ON") && (this.game.balloonStreak % 10 === 0)) {
+        window.drink.play();
+      } else if (window.sound === "AUDIO: ON") {
+        window.pickup.play();
+      }
+      // var node = document.createElement("DIV");
+      // var textnode = document.createTextNode(" ");
+      // node.appendChild(textnode);
+      // document.getElementById("streak").appendChild(node);
       this.remove()
       document.getElementById("score").innerHTML = "SCORE: " + (this.game.score += this.value);
       return true;
@@ -129,5 +134,7 @@ class Balloon extends MovingObject {
 
 Balloon.PICKUP = new Audio("../assets/temp/ITEMGET.wav.mp3");
 Balloon.PICKUP.volume = 0.50;
+Balloon.DRINK = new Audio("../assets/temp/EST-drink.wav.mp3");
+Balloon.DRINK.volume = 0.50;
 const NORMAL_FRAME_TIME_DELTA = 1000 / 60;
 module.exports = Balloon;

@@ -36,10 +36,12 @@ class Splash {
     document.getElementById("streak").style.color = "white";
     document.getElementById("hi-score").style.color = "white";
     document.getElementById("hi-score-val").style.color = "white";
+    // document.getElementById("audio-control").style.color = "white";
         document.getElementById("score").style.display = "inherit";
         document.getElementById("streak").style.display = "inherit";
         document.getElementById("hi-score").style.display = "inherit";
         document.getElementById("hi-score-val").style.display = "inherit";
+        // document.getElementById("audio-control").style.display = "inherit";
 
         document.getElementById("welcome").style.display = "none";
         document.getElementById("title").style.display = "none";
@@ -47,8 +49,10 @@ class Splash {
         document.getElementById("balloon_souls_canvas").removeEventListener("click", this.callback);
         document.removeEventListener("keydown", this.callback);
         document.getElementById("getGoing").innerHTML = "";
+
+
          let img = new Image();
-         img.src = '../assets/images/bg.png';
+         img.src = '../assets/images/bg2.gif';
          img.onload = () => {
            // create pattern
            var ptrn = this.ctx.createPattern(img, 'repeat'); // Create a pattern with this image, and set it to "repeat".

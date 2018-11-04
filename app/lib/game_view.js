@@ -51,6 +51,8 @@ class GameView {
           document.getElementById("streak").style.color = "black";
           document.getElementById("hi-score").style.color = "black";
           document.getElementById("hi-score-val").style.color = "black";
+          // document.getElementById("audio-control").style.color = "black";
+
           setTimeout((function() {
             document.getElementById("getGoing").innerHTML = "Press any key";
             // var elem = document.getElementById("balloon_souls_canvas");

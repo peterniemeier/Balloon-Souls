@@ -11,7 +11,7 @@ class Game {
     this.score = 0;
     this.hello = Game.HELLO;
     this.died = Game.DIED;
-    this.ost = [Game.OST1, Game.OST2, Game.OST3, Game.OST4];
+    this.ost = [Game.OST1, Game.OST2, Game.OST3, Game.OST4, Game.OST5, Game.OST6, Game.OST7, Game.OST8];
     this.track = null;
     this.width = Game.DIM_X;
     this.height = Game.DIM_Y;
@@ -78,8 +78,12 @@ class Game {
 
   addPlayer() {
     // this.hello.play();
-    this.track = this.ost[this.randomInt(this.ost.length)];
-    this.track.play();
+    if ((window.track === undefined) || (window.track.currentTime === 0)) {
+    window.track = this.track = this.ost[this.randomInt(this.ost.length)];
+      if (window.sound === "AUDIO: ON") {
+        this.track.play();
+      }
+    }
     const player = new Player({
       pos: this.setPosition(),
       game: this
@@ -216,7 +220,9 @@ class Game {
   gameOver(){
     this.over = true;
     this.died.load();
+    if (window.sound === "AUDIO: ON") {
     this.died.play();
+    }
     document.getElementById("youDied").style.display = "inherit";
     document.getElementById("scoreEnd").innerHTML = "Score: " + this.score;
     const hi = parseInt(document.getElementById("hi-score-val").innerHTML, 10);
@@ -229,9 +235,9 @@ class Game {
     document.getElementById("score").innerHTML = "SCORE: " + (this.score);
     document.getElementById("streak").innerHTML = "BALLOON STREAK: " + (this.balloonStreak);
     // document.getElementById("btnStart").innerHTML = "Click screen to begin anew";
-    this.track.pause();
+    window.track.pause();
     // this.track.src = this.ost[this.randomInt(this.ost.length)];
-    this.track.currentTime = 0;
+    window.track.currentTime = 0;
   }
 
   wrap(pos) {
@@ -242,12 +248,16 @@ class Game {
 }
 Game.HELLO = new Audio("../assets/temp/hello.wav.mp3");
 Game.HELLO.volume = 0.10;
-Game.DIED = new Audio("../assets/temp/thrudeath.wav.mp3");
+window.died = Game.DIED = new Audio("../assets/temp/thrudeath.wav.mp3");
 Game.DIED.volume = 0.50;
 Game.OST1 = new Audio("../assets/temp/Call to Adventure.mp3");
 Game.OST2 = new Audio("../assets/temp/Progear Music - All Ages War -Last Boss Stage-.mp3");
 Game.OST3 = new Audio("../assets/temp/G-Darius - 12 - Kimera II (PS1).mp3");
 Game.OST4 = new Audio("../assets/temp/Earthworm Jim OST - Banjo Race.mp3");
+Game.OST5 = new Audio("../assets/temp/Battletoads (NES) Music - Turbo Tunnel Part 2.mp3");
+Game.OST6 = new Audio("../assets/temp/Ninja Gaiden (NES) Music - Boss Battle.mp3");
+Game.OST7 = new Audio("../assets/temp/Duck Tales (NES) Music - Moon Stage.mp3");
+Game.OST8 = new Audio("../assets/temp/Best VGM 303 - Mega Man 3 - Snake Man Stage.mp3");
 
 
 
@@ -256,6 +266,10 @@ Game.OST1.volume = 0.50;
 Game.OST2.volume = 0.50;
 Game.OST3.volume = 0.50;
 Game.OST4.volume = 0.50;
+Game.OST5.volume = 0.50;
+Game.OST6.volume = 0.50;
+Game.OST7.volume = 0.50;
+Game.OST8.volume = 0.50;
 // Game.BG_COLOR = "#000000";
 Game.DIM_X = 1000;
 Game.DIM_Y = 600;

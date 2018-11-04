@@ -29,16 +29,30 @@ const Splash = require("./splash");
 
 document.addEventListener("DOMContentLoaded", () => {
   new Splash();
+  window.sound = "AUDIO: ON";
 
 
-
-
-  // document.getElementById("youDied").addEventListener("click", function(){
-  //   document.getElementById("title").style.display = "inherit";
-  //   document.getElementById("welcome").style.display = "inherit";
-  //   new Splash();
-  //   document.getElementById("youDied").style.display = "none";
-  // });
+  document.getElementById("audio-control").addEventListener("click", function(){
+    let audioState = document.getElementById("audio-toggle").innerHTML;
+    if (audioState === "AUDIO: ON") {
+      window.sound = document.getElementById("audio-toggle").innerHTML = "AUDIO: OFF";
+      if (window.track !== undefined) {
+        window.died.pause();
+        window.died.currentTime = 0;
+        window.track.pause();
+        window.track.currentTime = 0;
+      }
+    } else {
+      window.sound = document.getElementById("audio-toggle").innerHTML = "AUDIO: ON";
+      if (window.track !== undefined) {
+        window.track.play();
+      }
+    }
+    // document.getElementById("audio-toggle").style.display = "inherit";
+    // document.getElementById("welcome").style.display = "inherit";
+    // new Splash();
+    // document.getElementById("youDied").style.display = "none";
+  });
 
 
 
