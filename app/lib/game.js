@@ -11,7 +11,8 @@ class Game {
     this.score = 0;
     this.hello = Game.HELLO;
     this.died = Game.DIED;
-    this.ost = Game.OST;
+    this.ost = [Game.OST1, Game.OST2, Game.OST3, Game.OST4];
+    this.track = null;
     this.width = Game.DIM_X;
     this.height = Game.DIM_Y;
     this.balloonStreak = 0;
@@ -71,9 +72,14 @@ class Game {
     return water;
   }
 
+  randomInt(max){
+   return Math.floor(Math.random() * Math.floor(max));
+   }
+
   addPlayer() {
     // this.hello.play();
-    this.ost.play();
+    this.track = this.ost[this.randomInt(this.ost.length)];
+    this.track.play();
     const player = new Player({
       pos: this.setPosition(),
       game: this
@@ -159,6 +165,11 @@ class Game {
 
   moveObjects(delta) {
     document.getElementById("score").innerHTML = "SCORE: " + (this.score += 2);
+    const hi = parseInt(document.getElementById("hi-score-val").innerHTML, 10);
+
+    if (this.score > hi){
+      document.getElementById("hi-score-val").innerHTML = this.score;
+    }
     document.getElementById("streak").innerHTML = "BALLOON STREAK: " + (this.balloonStreak);
     this.player[0].moveMe(delta);
     // console.log(this.player[0].vel);
@@ -204,11 +215,12 @@ class Game {
 
   gameOver(){
     this.over = true;
+    this.died.load();
     this.died.play();
     document.getElementById("youDied").style.display = "inherit";
     document.getElementById("scoreEnd").innerHTML = "Score: " + this.score;
     const hi = parseInt(document.getElementById("hi-score-val").innerHTML, 10);
-    console.log(hi);
+
     if (this.score > hi){
       document.getElementById("hi-score-val").innerHTML = this.score;
     }
@@ -217,8 +229,9 @@ class Game {
     document.getElementById("score").innerHTML = "SCORE: " + (this.score);
     document.getElementById("streak").innerHTML = "BALLOON STREAK: " + (this.balloonStreak);
     // document.getElementById("btnStart").innerHTML = "Click screen to begin anew";
-    this.ost.pause();
-    this.ost.src = Game.OST = new Audio("../assets/temp/Call to Adventure.mp3");
+    this.track.pause();
+    // this.track.src = this.ost[this.randomInt(this.ost.length)];
+    this.track.currentTime = 0;
   }
 
   wrap(pos) {
@@ -231,12 +244,24 @@ Game.HELLO = new Audio("../assets/temp/hello.wav.mp3");
 Game.HELLO.volume = 0.10;
 Game.DIED = new Audio("../assets/temp/thrudeath.wav.mp3");
 Game.DIED.volume = 0.50;
-Game.OST = new Audio("../assets/temp/Call to Adventure.mp3");
-Game.OST.volume = 0.50;
+Game.OST1 = new Audio("../assets/temp/Call to Adventure.mp3");
+Game.OST2 = new Audio("../assets/temp/Progear Music - All Ages War -Last Boss Stage-.mp3");
+Game.OST3 = new Audio("../assets/temp/G-Darius - 12 - Kimera II (PS1).mp3");
+Game.OST4 = new Audio("../assets/temp/Earthworm Jim OST - Banjo Race.mp3");
+
+
+
+
+Game.OST1.volume = 0.50;
+Game.OST2.volume = 0.50;
+Game.OST3.volume = 0.50;
+Game.OST4.volume = 0.50;
 // Game.BG_COLOR = "#000000";
 Game.DIM_X = 1000;
 Game.DIM_Y = 600;
 Game.FPS = 32;
 Game.NUM_ASTEROIDS = 10;
+
+
 
 module.exports = Game;
