@@ -17,22 +17,36 @@ class Balloon extends MovingObject {
     super(options);
     window.pickup = this.pickup = Balloon.PICKUP;
     window.drink = this.drink = Balloon.DRINK;
-    if (this.pos[1] >= 400) {
+    while (this.pos[1] >= 550) {
       this.pos[1] = (600 * Math.random());
     }
-    if (this.pos[1] <= 300) {
+    while (this.pos[1] <= 15) {
       this.pos[1] = (600 * Math.random());
     }
-    let balloonImage = new Image();
-    balloonImage.src = '../assets/images/balloon.png'
+
+    let balloonImageOne = new Image();
+    balloonImageOne.src = '../assets/images/balloon1.png';
+
+    let balloonImageTwo = new Image();
+    balloonImageTwo.src = '../assets/images/balloon2.png';
+
+    let balloonImageThree = new Image();
+    balloonImageThree.src = '../assets/images/balloon3.png';
+
+    let balloonImageFour = new Image();
+    balloonImageFour.src = '../assets/images/balloon4.png';
+
+    let balloonImageFive = new Image();
+    balloonImageFive.src = '../assets/images/balloon5.png';
+
     this.frameIndex = 0,
     this.tickCount = 0,
     this.width = 80,
-    this.value = 2000;
     this.height = 64,
     this.numberOfFrames = 2,
     this.ticksPerFrame = 24,
-    this.balloonImage = balloonImage;
+    this.currentBallon = [balloonImageOne, balloonImageTwo, balloonImageThree, balloonImageFour, balloonImageFive]
+    this.balloonImage = this.currentBallon[this.game.balloonIdx];
 
   }
   update() {
@@ -68,6 +82,8 @@ class Balloon extends MovingObject {
     if (this.pos[0] > 1000) {
       //also need logic to reset balloon streak here....
       this.game.balloonStreak = 0;
+      this.game.balloonIdx = 0;
+      this.game.value = 2000;
       this.remove();
     }
     if (this.game.isOutOfBounds(this.pos)) {
@@ -111,7 +127,9 @@ class Balloon extends MovingObject {
   collideWith(otherObject) {
     if (otherObject instanceof Player) {
       this.game.balloonStreak += 1;
-      if ((window.sound === "AUDIO: ON") && (this.game.balloonStreak % 10 === 0)) {
+      if ((window.sound === "AUDIO: ON") && (this.game.balloonStreak % 10 === 0) && (this.game.balloonIdx < 4)) {
+        this.game.balloonIdx++;
+        this.game.value *= 2;
         window.drink.play();
       } else if (window.sound === "AUDIO: ON") {
         window.pickup.play();
@@ -121,7 +139,7 @@ class Balloon extends MovingObject {
       // node.appendChild(textnode);
       // document.getElementById("streak").appendChild(node);
       this.remove()
-      document.getElementById("score").innerHTML = "SCORE: " + (this.game.score += this.value);
+      document.getElementById("score").innerHTML = "SCORE: " + (this.game.score += this.game.value);
       return true;
     }
     //  else if (otherObject instanceof Bullet) {

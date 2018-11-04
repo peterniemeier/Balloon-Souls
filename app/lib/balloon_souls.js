@@ -45,7 +45,13 @@ document.addEventListener("DOMContentLoaded", () => {
     } else {
       window.sound = document.getElementById("audio-toggle").innerHTML = "AUDIO: ON";
       if (window.track !== undefined) {
-        window.track.play();
+        if (window.sound === "AUDIO: ON") {
+          window.track.addEventListener('ended', function() {
+            this.currentTime = 0;
+            this.play();
+          }, false);
+            window.track.play();
+        }
       }
     }
     // document.getElementById("audio-toggle").style.display = "inherit";

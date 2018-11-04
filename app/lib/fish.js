@@ -23,7 +23,8 @@ class Fish extends MovingObject {
     let fishImage = new Image();
     fishImage.src = '../assets/images/fish.png'
     super(options);
-    this.name = 'billy';
+    this.hello = Fish.HELLO;
+    this.name = 'Gilly';
     this.frameIndex = 0,
     this.tickCount = 0,
     this.width = 390,
@@ -31,6 +32,7 @@ class Fish extends MovingObject {
     this.numberOfFrames = 6,
     this.ticksPerFrame = 8,
     this.fishImage = fishImage;
+    // this.hello.play();
   }
 
   // fireBullet() {
@@ -119,6 +121,10 @@ class Fish extends MovingObject {
 
 
 }
+
+Fish.HELLO = new Audio("../assets/temp/hello.wav.mp3");
+Fish.HELLO.volume = 0.10;
+
 const NORMAL_FRAME_TIME_DELTA = 1000 / 60;
 Fish.RADIUS = 15;
 module.exports = Fish;

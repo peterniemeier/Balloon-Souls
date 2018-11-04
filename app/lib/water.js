@@ -64,7 +64,7 @@ class Water extends StaticObject {
       0,
       this.width / this.numberOfFrames,
       this.height,
-      this.pos[0] = (0 - 50),
+      this.pos[0] = (0 - 40),
       this.pos[1] = 550,
       this.width / this.numberOfFrames,
       this.height);
