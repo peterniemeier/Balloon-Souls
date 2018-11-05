@@ -133,6 +133,9 @@ class Balloon extends MovingObject {
         window.drink.play();
       } else if (window.sound === "AUDIO: ON") {
         window.pickup.play();
+      } else if ((window.sound === "AUDIO: OFF") && (this.game.balloonStreak % 10 === 0) && (this.game.balloonIdx < 4)) {
+        this.game.balloonIdx++;
+        this.game.value *= 2;
       }
       // var node = document.createElement("DIV");
       // var textnode = document.createTextNode(" ");
