@@ -243,6 +243,10 @@ class Game {
     this.over = true;
     this.died.load();
     if (window.sound === "AUDIO: ON") {
+    // if (window.track !== undefined) {
+      window.track.pause();
+      window.track.currentTime = 0;
+    // }
     this.died.play();
     }
     document.getElementById("youDied").style.display = "inherit";
@@ -257,9 +261,9 @@ class Game {
     document.getElementById("score").innerHTML = "SCORE: " + (this.score);
     document.getElementById("streak").innerHTML = "BALLOON STREAK: " + (this.balloonStreak);
     // document.getElementById("btnStart").innerHTML = "Click screen to begin anew";
-    window.track.pause();
+
     // this.track.src = this.ost[this.randomInt(this.ost.length)];
-    window.track.currentTime = 0;
+
   }
 
   wrap(pos) {
@@ -288,7 +292,7 @@ Game.OST2.volume = 0.50;
 Game.OST3.volume = 0.50;
 Game.OST4.volume = 0.50;
 Game.OST5.volume = 0.50;
-Game.OST6.volume = 0.50;
+Game.OST6.volume = 0.70;
 Game.OST7.volume = 0.50;
 Game.OST8.volume = 0.50;
 // Game.BG_COLOR = "#000000";
