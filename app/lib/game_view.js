@@ -83,9 +83,9 @@ class GameView {
         this.game.over = false;
         } else {
         const timeDelta = time - this.lastTime;
-        if (timeDelta > 50) {
-          console.log(timeDelta);
-        }
+        // if (timeDelta > 50) {
+        //   console.log(timeDelta);
+        // }
         this.game.step(timeDelta);
         this.game.draw(this.ctx);
         this.lastTime = time;

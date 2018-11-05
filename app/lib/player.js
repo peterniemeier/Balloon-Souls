@@ -18,9 +18,21 @@ class Player extends MovingObject {
     options.radius = Player.RADIUS;
     options.vel = options.vel || [0, 0];
     options.color = options.color || randomColor();
-    let playerImage = new Image();
-    playerImage.src = '../assets/images/player-left.png'
+    let playerImageLeft = new Image();
+    playerImageLeft.src = '../assets/images/player-left.png'
+
+    let playerImageRight = new Image();
+    playerImageRight.src = '../assets/images/player-right.png'
+
+    let playerImageLeftFlap = new Image();
+    playerImageLeftFlap.src = '../assets/images/player-left-flap.png'
+
+    let playerImageRightFlap = new Image();
+    playerImageRightFlap.src = '../assets/images/player-right-flap.png'
+
     super(options);
+    this.sprites = [playerImageLeft, playerImageRight, playerImageLeftFlap, playerImageRightFlap]
+
     this.isWrappable = false;
     this.frameIndex = 0,
     this.tickCount = 0,
@@ -28,7 +40,7 @@ class Player extends MovingObject {
     this.height = 100,
     this.numberOfFrames = 3,
     this.ticksPerFrame = 4,
-    this.playerImage = playerImage;
+    this.playerImage = this.sprites[0];
     this.flapping = false;
     this.flapCount = 0;
   }
@@ -70,11 +82,11 @@ class Player extends MovingObject {
     if(this.flapCount > 45 && this.flapping == true && (this.vel[0] < 0 || this.vel[0] == 0)) {
       this.flapCount = 0
       this.flapping = false;
-      this.playerImage.src="../assets/images/player-left.png"
+      this.playerImage = this.sprites[0];
     } else if (this.flapCount > 45 && this.flapping == true && this.vel[0] > 0){
       this.flapCount = 0
       this.flapping = false;
-      this.playerImage.src="../assets/images/player-right.png"
+      this.playerImage = this.sprites[1];
     }
 
 
@@ -116,9 +128,9 @@ class Player extends MovingObject {
     }
     this.pos = [this.pos[0] + offsetX, this.pos[1] + 3 + offsetY];
     if(this.vel[0] < 0 && this.flapping == false) {
-      this.playerImage.src="../assets/images/player-left.png"
+      this.playerImage = this.sprites[0];
     } else if (this.vel[0] > 0 && this.flapping == false){
-      this.playerImage.src="../assets/images/player-right.png"
+      this.playerImage = this.sprites[1];
     }
     // Commented this shit out because it was causing the game to crash once the player got out of bounds.
     // if (this.game.isOutOfBounds(this.pos)) {
@@ -137,11 +149,11 @@ class Player extends MovingObject {
     this.vel[1] -= 10;
     this.flapping = true;
     if(this.vel[0] < 0) {
-      this.playerImage.src="../assets/images/player-left-flap.png"
+      this.playerImage = this.sprites[2];
     } else if (this.vel[0] > 0) {
-      this.playerImage.src="../assets/images/player-right-flap.png"
+      this.playerImage = this.sprites[3];
     } else if (this.vel[0] == 0) {
-      this.playerImage.src="../assets/images/player-left-flap.png"
+      this.playerImage = this.sprites[2];
     }
   }
 

@@ -12,8 +12,8 @@ class Game {
     this.score = 0;
     this.hello = Game.HELLO;
     this.died = Game.DIED;
-    this.ost = [Game.OST7];
-    // this.ost = [Game.OST1, Game.OST2, Game.OST3, Game.OST4, Game.OST5, Game.OST6, Game.OST7, Game.OST8];
+    // this.ost = [Game.OST7];
+    this.ost = [Game.OST1, Game.OST2, Game.OST3, Game.OST4, Game.OST5, Game.OST6, Game.OST7, Game.OST8];
     this.track = null;
     this.width = Game.DIM_X;
     this.height = Game.DIM_Y;
@@ -270,26 +270,26 @@ class Game {
 
 window.died = Game.DIED = new Audio("../assets/temp/thrudeath.wav.mp3");
 Game.DIED.volume = 0.50;
-// Game.OST1 = new Audio("../assets/temp/Call to Adventure.mp3");
-// Game.OST2 = new Audio("../assets/temp/Progear Music - All Ages War -Last Boss Stage-.mp3");
-// Game.OST3 = new Audio("../assets/temp/G-Darius - 12 - Kimera II (PS1).mp3");
-// Game.OST4 = new Audio("../assets/temp/Earthworm Jim OST - Banjo Race.mp3");
-// Game.OST5 = new Audio("../assets/temp/Battletoads (NES) Music - Turbo Tunnel Part 2.mp3");
-// Game.OST6 = new Audio("../assets/temp/Ninja Gaiden (NES) Music - Boss Battle.mp3");
+Game.OST1 = new Audio("../assets/temp/Call to Adventure.mp3");
+Game.OST2 = new Audio("../assets/temp/Progear Music - All Ages War -Last Boss Stage-.mp3");
+Game.OST3 = new Audio("../assets/temp/G-Darius - 12 - Kimera II (PS1).mp3");
+Game.OST4 = new Audio("../assets/temp/Earthworm Jim OST - Banjo Race.mp3");
+Game.OST5 = new Audio("../assets/temp/Battletoads (NES) Music - Turbo Tunnel Part 2.mp3");
+Game.OST6 = new Audio("../assets/temp/Ninja Gaiden (NES) Music - Boss Battle.mp3");
 Game.OST7 = new Audio("../assets/temp/Duck Tales (NES) Music - Moon Stage.mp3");
-// Game.OST8 = new Audio("../assets/temp/Best VGM 303 - Mega Man 3 - Snake Man Stage.mp3");
+Game.OST8 = new Audio("../assets/temp/Best VGM 303 - Mega Man 3 - Snake Man Stage.mp3");
 
 
 
 
-// Game.OST1.volume = 0.50;
-// Game.OST2.volume = 0.50;
-// Game.OST3.volume = 0.50;
-// Game.OST4.volume = 0.50;
-// Game.OST5.volume = 0.50;
-// Game.OST6.volume = 0.50;
+Game.OST1.volume = 0.50;
+Game.OST2.volume = 0.50;
+Game.OST3.volume = 0.50;
+Game.OST4.volume = 0.50;
+Game.OST5.volume = 0.50;
+Game.OST6.volume = 0.50;
 Game.OST7.volume = 0.50;
-// Game.OST8.volume = 0.50;
+Game.OST8.volume = 0.50;
 // Game.BG_COLOR = "#000000";
 Game.DIM_X = 1000;
 Game.DIM_Y = 600;
