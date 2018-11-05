@@ -26,7 +26,7 @@ class Game {
     this.player = [];
     this.stars = [];
     this.balloons = [];
-    // this.startFiringStars(this);
+    this.startFiringStars(this);
     this.startFiringBalloons(this);
     // this.addBg();
     this.addWater();
