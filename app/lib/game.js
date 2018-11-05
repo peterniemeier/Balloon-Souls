@@ -13,7 +13,20 @@ class Game {
     this.hello = Game.HELLO;
     this.died = Game.DIED;
     // this.ost = [Game.OST7];
-    this.ost = [Game.OST1, Game.OST2, Game.OST3, Game.OST4, Game.OST5, Game.OST6, Game.OST7, Game.OST8];
+    this.ost = [Game.OST1,
+      Game.OST2,
+      Game.OST3,
+      Game.OST4,
+      Game.OST5,
+      Game.OST6,
+      Game.OST7,
+      Game.OST8,
+      Game.OST9,
+      Game.OST10,
+      Game.OST11,
+      Game.OST12,
+      Game.OST13,
+      Game.OST14];
     this.track = null;
     this.width = Game.DIM_X;
     this.height = Game.DIM_Y;
@@ -283,9 +296,12 @@ Game.OST5 = new Audio("../assets/temp/Battletoads (NES) Music - Turbo Tunnel Par
 Game.OST6 = new Audio("../assets/temp/Ninja Gaiden (NES) Music - Boss Battle.mp3");
 Game.OST7 = new Audio("../assets/temp/Duck Tales (NES) Music - Moon Stage.mp3");
 Game.OST8 = new Audio("../assets/temp/Best VGM 303 - Mega Man 3 - Snake Man Stage.mp3");
-
-
-
+Game.OST9 = new Audio("../assets/temp/Teenage Mutant Ninja Turtles (NES) Music - Underwater Bombs.mp3");
+Game.OST10 = new Audio("../assets/temp/Super Castlevania IV OST Stage 6 The Chandeliers (6-2).mp3");
+Game.OST11 = new Audio("../assets/temp/Final Fantasy XII - Clash On The Big Bridge FFXII Version.mp3");
+Game.OST12 = new Audio("../assets/temp/Final Fantasy III (SNES) Music - Ultros Opera Battle.mp3");
+Game.OST13 = new Audio("../assets/temp/F-Zero (SNES) Music - Mute City.mp3");
+Game.OST14 = new Audio("../assets/temp/Donkey Kong Country OST 13 Life in the Mines.mp3");
 
 Game.OST1.volume = 0.50;
 Game.OST2.volume = 0.50;
@@ -295,6 +311,12 @@ Game.OST5.volume = 0.50;
 Game.OST6.volume = 0.70;
 Game.OST7.volume = 0.50;
 Game.OST8.volume = 0.50;
+Game.OST9.volume = 0.50;
+Game.OST10.volume = 0.50;
+Game.OST11.volume = 0.50;
+Game.OST12.volume = 0.50;
+Game.OST13.volume = 0.50;
+Game.OST14.volume = 0.70;
 // Game.BG_COLOR = "#000000";
 Game.DIM_X = 1000;
 Game.DIM_Y = 600;
