@@ -102,6 +102,7 @@ class Game {
           this.currentTime = 0;
           this.play();
         }, false);
+          window.track.load();
           window.track.play();
       }
     }
