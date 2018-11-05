@@ -40,11 +40,11 @@ class StaticObject {
         offsetY = this.vel[1] * velocityScale;
 
     this.pos = [this.pos[0] + offsetX, this.pos[1] + offsetY];
-
-    if (this.pos[0] > 1000) {
-
-      this.remove();
-    }
+    // 
+    // if (this.pos[0] > 1000) {
+    //
+    //   this.remove();
+    // }
     if (this.game.isOutOfBounds(this.pos)) {
       if (this.isWrappable) {
         this.pos = this.game.wrap(this.pos);

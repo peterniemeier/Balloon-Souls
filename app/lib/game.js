@@ -4,6 +4,7 @@ const Util = require("./util");
 const Water = require("./water");
 const Fish = require("./fish");
 const Balloon = require("./balloon");
+const Bg = require("./bg");
 
 class Game {
   constructor() {
@@ -19,6 +20,7 @@ class Game {
     this.balloonStreak = 0;
     this.balloonIdx = 0
     this.value = 2000;
+    this.bg = [];
     this.fish = [];
     this.water = [];
     this.player = [];
@@ -26,18 +28,21 @@ class Game {
     this.balloons = [];
     this.startFiringStars(this);
     this.startFiringBalloons(this);
+    // this.addBg();
     this.addWater();
   }
 
   add(object) {
-    if (object instanceof Balloon) {
+    if (object instanceof Star) {
+      this.stars.push(object);
+    } else if (object instanceof Balloon) {
       this.balloons.push(object);
     } else if (object instanceof Fish) {
       this.fish.push(object);
     } else if (object instanceof Player) {
       this.player.push(object);
-    } else if (object instanceof Star) {
-      this.stars.push(object);
+    } else if (object instanceof Bg) {
+      this.bg.push(object);
     } else {
       throw new Error("unknown type of object");
     }
@@ -73,6 +78,15 @@ class Game {
     });
     this.addStatic(water);
     return water;
+  }
+
+  addBg() {
+    const bg = new Bg({
+      pos: [0,0],
+      game: this
+    });
+    this.add(bg);
+    return bg;
   }
 
   randomInt(max){
@@ -116,13 +130,13 @@ class Game {
   allObjects() {
     // console.log(this.player[0]);
     if (this.fish[0] !== undefined && this.balloons !== undefined) {
-    return [].concat(this.stars, this.player[0],this.fish[0],this.balloons);
+    return [].concat(this.bg, this.stars, this.player[0],this.fish[0],this.balloons);
   } else if (this.fish[0] && this.balloons === undefined) {
-    return [].concat(this.stars, this.player[0],this.fish[0]);
+    return [].concat(this.bg,this.stars, this.player[0],this.fish[0]);
   } else if (this.fish[0] === undefined && this.balloons){
-    return [].concat(this.stars, this.player[0],this.balloons);
+    return [].concat(this.bg,this.stars, this.player[0],this.balloons);
   } else {
-    return [].concat(this.stars, this.player[0]);
+    return [].concat(this.bg,this.stars, this.player[0]);
     }
   }
 

@@ -122,8 +122,8 @@ class Fish extends MovingObject {
 
 }
 
-Fish.HELLO = new Audio("../assets/temp/hello.wav.mp3");
-Fish.HELLO.volume = 0.10;
+// Fish.HELLO = new Audio("../assets/temp/hello.wav.mp3");
+// Fish.HELLO.volume = 0.10;
 
 const NORMAL_FRAME_TIME_DELTA = 1000 / 60;
 Fish.RADIUS = 15;
