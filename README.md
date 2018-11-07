@@ -91,6 +91,55 @@ Javascript Canvas will be used for the ease of animating and displaying sprites.
 The remaining game logic will all be handled using javascript.
 The entire project will exist on one page and will utilize HTML and CSS.
 
+# Score, SFX, CREDITS
+
+Credit Kevin MacLeod
+Game.OST1 = new Audio("../assets/temp/Call to Adventure.mp3");
+
+Credit Yukinori Kikuchi, Developer CAVE, Publisher Capcom
+Game.OST2 = new Audio("../assets/temp/Progear Music - All Ages War -Last Boss Stage-.mp3");
+
+Credit Hisayoshi Ogura, Publisher THQ, Developer Taito
+Game.OST3 = new Audio("../assets/temp/G-Darius - 12 - Kimera II (PS1).mp3");
+
+Credit Mark Miller, Developer Shiny Entertainment, Publisher Interplay Entertainment
+Game.OST4 = new Audio("../assets/temp/Earthworm Jim OST - Banjo Race.mp3");
+
+Credit David Wise, Developer Rare, Publisher Tradewest/Masaya Games
+Game.OST5 = new Audio("../assets/temp/Battletoads (NES) Music - Turbo Tunnel Part 2.mp3");
+
+Credit Keiji Yamagishi/Ryuichi Nitta, Publisher/Developer Tecmo
+Game.OST6 = new Audio("../assets/temp/Ninja Gaiden (NES) Music - Boss Battle.mp3");
+
+Credit Hiroshige Tonomura, Publisher/Developer Capcom
+Game.OST7 = new Audio("../assets/temp/Duck Tales (NES) Music - Moon Stage.mp3");
+
+Credit Composers Yasuaki Fujita, Harumi Fujita, Developer/Publisher Capcom
+Game.OST8 = new Audio("../assets/temp/Best VGM 303 - Mega Man 3 - Snake Man Stage.mp3");
+
+Credit Jun Funahashi, Publisher Ultra Games, Developer Konami
+Game.OST9 = new Audio("../assets/temp/Teenage Mutant Ninja Turtles (NES) Music - Underwater Bombs.mp3");
+
+Credits Masanori Adachi/Taro Kudo, Publisher/Developer Konami
+Game.OST10 = new Audio("../assets/temp/Super Castlevania IV OST Stage 6 The Chandeliers (6-2).mp3");
+
+Credit Hitoshi Sakimoto, Masaharu Iwata, Hayato Matsuo, Nobuo Uematsu, Publisher/Developer Square Enix
+Game.OST11 = new Audio("../assets/temp/Final Fantasy XII - Clash On The Big Bridge FFXII Version.mp3");
+
+Credit Nobuo Uematsu, Publisher/Developer Square
+Game.OST12 = new Audio("../assets/temp/Final Fantasy III (SNES) Music - Ultros Opera Battle.mp3");
+
+Credit Yumiko Kanki Naoto Ishida, Publisher/Developer Nintendo
+Game.OST13 = new Audio("../assets/temp/F-Zero (SNES) Music - Mute City.mp3");
+
+Credit David Wise, Developer Rare, Publisher Nintendo
+Game.OST14 = new Audio("../assets/temp/Donkey Kong Country OST 13 Life in the Mines.mp3");
+
+Pickup/Drink/Died SFX - Credit:
+Foley Recordist, Kazushige Sato (DiMAGIC)
+Foley Artists, Shunsuke Hongo (Ventuno Inc.)
+Publisher Namco Bandai Games, Developer FromSoftware
+
 # Timeline
 
 * Monday:
