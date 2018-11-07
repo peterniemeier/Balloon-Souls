@@ -19,6 +19,11 @@ body {
     box-sizing: inherit;
 }
 
+#title-elements {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 #balloon_souls_canvas {
 
 }
@@ -43,11 +48,9 @@ body {
 
 #title {
   text-align: center;
+  margin-top: 15%;
   font-size: 4em;
-  left: 21%;
   top: 20%;
-  position: absolute;
-  text-align: center;
   background: -webkit-linear-gradient(#eee, #333);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -55,13 +58,8 @@ body {
 }
 
 #welcome {
-  top: 50%;
-  left: 25%;
-
-  position: absolute;
   text-align: center;
-  margin-left: auto;
-  margin-right: auto;
+  margin-top: 10%;
 }
 
 #youDied {
