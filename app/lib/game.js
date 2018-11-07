@@ -247,7 +247,7 @@ class Game {
   }
 
   step(delta) {
-    if (window.track.currentTime > 0) {
+    if ((window.track.currentTime > 1) && (window.sound === "AUDIO: ON")) {
       this.moveObjects(delta);
       this.checkCollisions();
     }
