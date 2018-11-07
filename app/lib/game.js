@@ -247,6 +247,9 @@ class Game {
   }
 
   step(delta) {
+    while (document.readyState !== 'complete') {
+      
+    }
     this.moveObjects(delta);
     this.checkCollisions();
   }

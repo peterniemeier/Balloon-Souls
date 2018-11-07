@@ -24,6 +24,7 @@ body {
 }
 #ui {
   border: 1px solid black;
+  box-sizing: border-box;
   font-family: 'PressStart2P-Regular', Arial, sans-serif;
   display: block;
   width: 1000px;
