@@ -91,7 +91,9 @@ Javascript Canvas will be used for the ease of animating and displaying sprites.
 The remaining game logic will all be handled using javascript.
 The entire project will exist on one page and will utilize HTML and CSS.
 
-# Score, SFX, CREDITS
+# Score, SFX, VFX, CREDITS
+
+Player character, Fish, Stars/Embers inspired by assets belonging to Nintendo
 
 Credit Kevin MacLeod
 Game.OST1 = new Audio("../assets/temp/Call to Adventure.mp3");
@@ -139,6 +141,8 @@ Pickup/Drink/Died SFX - Credit:
 Foley Recordist, Kazushige Sato (DiMAGIC)
 Foley Artists, Shunsuke Hongo (Ventuno Inc.)
 Publisher Namco Bandai Games, Developer FromSoftware
+
+Game design & code Peter Niemeier
 
 # Timeline
 
