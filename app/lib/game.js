@@ -247,11 +247,10 @@ class Game {
   }
 
   step(delta) {
-    while (document.readyState !== 'complete') {
-      
+    if (window.track.currentTime > 0) {
+      this.moveObjects(delta);
+      this.checkCollisions();
     }
-    this.moveObjects(delta);
-    this.checkCollisions();
   }
 
 
