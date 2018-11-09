@@ -268,6 +268,7 @@ class Game {
     this.died.play();
     }
     document.getElementById("youDied").style.display = "inherit";
+    
     document.getElementById("scoreEnd").innerHTML = "Score: " + this.score;
     const hi = parseInt(document.getElementById("hi-score-val").innerHTML, 10);
 

@@ -41,6 +41,7 @@ class Splash {
         document.getElementById("streak").style.display = "inherit";
         document.getElementById("hi-score").style.display = "inherit";
         document.getElementById("hi-score-val").style.display = "inherit";
+        document.getElementById("content").style.display = "flex";
         // document.getElementById("audio-control").style.display = "inherit";
 
         document.getElementById("welcome").style.display = "none";

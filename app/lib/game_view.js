@@ -75,6 +75,8 @@ class GameView {
               document.getElementById("title").style.display = "inherit";
               document.getElementById("welcome").style.display = "inherit";
               document.getElementById("youDied").style.display = "none";
+              document.getElementById("content").style.display = "none";
+              
               new this.splash();
             }
           }

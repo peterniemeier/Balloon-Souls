@@ -62,6 +62,10 @@ body {
   margin-top: 10%;
 }
 
+#game-contents {
+  
+}
+
 #youDied {
   display: block;
   font-family: 'PressStart2P-Regular', Arial, sans-serif;
