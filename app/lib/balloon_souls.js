@@ -28,6 +28,7 @@ const Splash = require("./splash");
 // }
 
 document.addEventListener("DOMContentLoaded", () => {
+  document.getElementById("content").style.display = "none";
   new Splash();
   window.sound = "AUDIO: ON";
 
