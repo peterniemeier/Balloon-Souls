@@ -259,7 +259,7 @@ class Game {
       document.getElementById("loading").style.display = "none";
       this.moveObjects(delta);
       this.checkCollisions();
-    } else if ((window.track.currentTime = 0) && (window.sound === "AUDIO: ON")) {
+    } else if ((window.track.currentTime === 0) && (window.sound === "AUDIO: ON")) {
       document.getElementById("loading").style.display = "inherit";
     } else if (window.sound === "AUDIO: OFF") {
       this.begun = true;
