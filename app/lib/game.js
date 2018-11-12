@@ -39,8 +39,9 @@ class Game {
     this.player = [];
     this.stars = [];
     this.balloons = [];
-    this.startFiringStars(this);
-    this.startFiringBalloons(this);
+    this.firing = false;
+    this.begun = false;
+
     // this.addBg();
     this.addWater();
   }
@@ -70,11 +71,10 @@ class Game {
   }
 
   startFiringStars(context) {
-
     setInterval(function(){context.add(new Star({ game: context, pos: [0,600 * Math.random()] }))}, 700);
+
   }
   startFiringBalloons(context) {
-
     setInterval(function(){context.add(new Balloon({ game: context, pos: [0,600 * Math.random()] }))}, (Math.random() * (10000 - 5000) + 5000 ));
   }
 
@@ -247,10 +247,22 @@ class Game {
   }
 
   step(delta) {
+    if ((this.begun === true) && (this.firing === false)) {
+      this.firing = true;
+      this.startFiringStars(this);
+      this.startFiringBalloons(this);
+    }
+
+
     if ((window.track.currentTime > 0) && (window.sound === "AUDIO: ON")) {
+      this.begun = true;
+      document.getElementById("loading").style.display = "none";
       this.moveObjects(delta);
       this.checkCollisions();
+    } else if ((window.track.currentTime = 0) && (window.sound === "AUDIO: ON")) {
+      document.getElementById("loading").style.display = "inherit";
     } else if (window.sound === "AUDIO: OFF") {
+      this.begun = true;
       this.moveObjects(delta);
       this.checkCollisions();
     }
@@ -259,6 +271,7 @@ class Game {
 
   gameOver(){
     this.over = true;
+    this.begun = false;
     this.died.load();
     if (window.sound === "AUDIO: ON") {
     // if (window.track !== undefined) {
@@ -268,7 +281,7 @@ class Game {
     this.died.play();
     }
     document.getElementById("youDied").style.display = "inherit";
-    
+
     document.getElementById("scoreEnd").innerHTML = "Score: " + this.score;
     const hi = parseInt(document.getElementById("hi-score-val").innerHTML, 10);
 
@@ -294,6 +307,7 @@ class Game {
 
 window.died = Game.DIED = new Audio("../assets/temp/thrudeath.wav.mp3");
 Game.DIED.volume = 0.50;
+
 Game.OST1 = new Audio("../assets/temp/Call to Adventure.mp3");
 Game.OST2 = new Audio("../assets/temp/Progear Music - All Ages War -Last Boss Stage-.mp3");
 Game.OST3 = new Audio("../assets/temp/G-Darius - 12 - Kimera II (PS1).mp3");
@@ -308,7 +322,6 @@ Game.OST11 = new Audio("../assets/temp/Final Fantasy XII - Clash On The Big Brid
 Game.OST12 = new Audio("../assets/temp/Final Fantasy III (SNES) Music - Ultros Opera Battle.mp3");
 Game.OST13 = new Audio("../assets/temp/F-Zero (SNES) Music - Mute City.mp3");
 Game.OST14 = new Audio("../assets/temp/Donkey Kong Country OST 13 Life in the Mines.mp3");
-
 Game.OST1.volume = 0.50;
 Game.OST2.volume = 0.50;
 Game.OST3.volume = 0.50;

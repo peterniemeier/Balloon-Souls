@@ -31,7 +31,7 @@ class GameView {
     });
 
     key(",", () => { player.flap(); });
-
+    key("space", () => { player.flap(); });
   }
 
   start() {
@@ -76,7 +76,7 @@ class GameView {
               document.getElementById("welcome").style.display = "inherit";
               document.getElementById("youDied").style.display = "none";
               document.getElementById("content").style.display = "none";
-              
+
               new this.splash();
             }
           }
@@ -100,8 +100,10 @@ class GameView {
 GameView.MOVES = {
   // w: [0, -1],
   a: [-1, 0],
+  left: [-1, 0],
   // s: [0, 1],
   d: [1, 0],
+  right: [1, 0],
   // ',': [0, -1],
   // .: 190
 };

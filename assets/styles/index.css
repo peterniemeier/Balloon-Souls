@@ -63,7 +63,7 @@ body {
 }
 
 #game-contents {
-  
+
 }
 
 #youDied {
@@ -79,6 +79,22 @@ body {
   background-color: black;
   color: red;
   font-size: 8em;
+  z-index: 1;
+}
+
+#loading {
+  display: block;
+  font-family: 'PressStart2P-Regular', Arial, sans-serif;
+  position: absolute;
+  top: 0px;
+  text-align: center;
+  padding-top: 20%;
+  width: 99vw;
+  height:99vh;
+  display: none;
+  background-color: black;
+  color: white;
+  font-size: 2em;
   z-index: 1;
 }
 
