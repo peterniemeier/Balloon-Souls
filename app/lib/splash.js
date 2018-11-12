@@ -53,7 +53,7 @@ class Splash {
 
 
          let img = new Image();
-         img.src = '../assets/images/bg2.gif';
+         img.src = '../assets/images/rpbg.png';
          img.onload = () => {
            // create pattern
            var ptrn = this.ctx.createPattern(img, 'repeat'); // Create a pattern with this image, and set it to "repeat".
