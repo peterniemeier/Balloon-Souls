@@ -261,8 +261,6 @@ class Game {
       this.checkCollisions();
     } else if ((window.track.currentTime === 0) && (window.sound === "AUDIO: ON") && (this.begun === false)) {
       document.getElementById("loading").style.display = "inherit";
-      let dot = ".";
-      document.getElementById("loading").innerHTML += dot;
     } else if (window.sound === "AUDIO: OFF") {
       this.begun = true;
       this.moveObjects(delta);

@@ -84,6 +84,7 @@ body {
 
 #loading {
   display: block;
+  animation: pulse 2s infinite;
   font-family: 'PressStart2P-Regular', Arial, sans-serif;
   position: absolute;
   top: 0px;
@@ -96,6 +97,15 @@ body {
   color: white;
   font-size: 2em;
   z-index: 1;
+}
+
+@keyframes pulse {
+  0% {
+    color: black;
+  }
+  100% {
+    color: white;
+  }
 }
 
 #score {
