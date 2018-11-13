@@ -70,7 +70,6 @@ document.addEventListener("DOMContentLoaded", () => {
   waterImage.onload = () => {
     window.waterImage = waterImage;
   }
-  new Splash();
   window.sound = "AUDIO: ON";
 
 
@@ -101,6 +100,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // new Splash();
     // document.getElementById("youDied").style.display = "none";
   });
+  new Splash();
 
 
 

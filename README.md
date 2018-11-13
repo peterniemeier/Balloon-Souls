@@ -97,6 +97,10 @@ Player character, Fish, Stars/Embers inspired by assets belonging to Nintendo
 
 Credit Kevin MacLeod
 Game.OST1 = new Audio("../assets/temp/Call to Adventure.mp3");
+https://incompetech.com/music/royalty-free/
+Call to Adventure Kevin MacLeod (incompetech.com)
+Licensed under Creative Commons: By Attribution 3.0 License
+http://creativecommons.org/licenses/by/3.0/
 
 Credit Yukinori Kikuchi, Developer CAVE, Publisher Capcom
 Game.OST2 = new Audio("../assets/temp/Progear Music - All Ages War -Last Boss Stage-.mp3");

@@ -262,7 +262,7 @@ class Game {
       this.checkCollisions();
     } else if ((window.track.currentTime === 0) && (window.sound === "AUDIO: ON")) {
       document.getElementById("loading").style.display = "inherit";
-    } else if ((window.sound === "AUDIO: OFF") && (this.loadedAssets())) {
+    } else if (window.sound === "AUDIO: OFF") {
       this.begun = true;
       this.moveObjects(delta);
       this.checkCollisions();
