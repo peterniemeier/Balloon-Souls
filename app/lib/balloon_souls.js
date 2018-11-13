@@ -29,6 +29,43 @@ const Splash = require("./splash");
 
 document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("content").style.display = "none";
+
+  let fishImage = new Image();
+  fishImage.src = '../assets/images/fish.png'
+  fishImage.onload = () => {
+    window.fishImage = fishImage;
+  }
+
+  let playerImageLeft = new Image();
+  playerImageLeft.src = '../assets/images/player-left.png'
+  let playerImageRight = new Image();
+  playerImageRight.src = '../assets/images/player-right.png'
+  let playerImageLeftFlap = new Image();
+  playerImageLeftFlap.src = '../assets/images/player-left-flap.png'
+  let playerImageRightFlap = new Image();
+  playerImageRightFlap.src = '../assets/images/player-right-flap.png'
+  playerImageLeft.onload = () => {
+    window.playerImageLeft = playerImageLeft;
+  }
+  playerImageRight.onload = () => {
+    window.playerImageRight = playerImageRight;
+  }
+  playerImageLeftFlap.onload = () => {
+    window.playerImageLeftFlap = playerImageLeftFlap;
+  }
+  playerImageRightFlap.onload = () => {
+    window.playerImageRightFlap = playerImageRightFlap;
+  }
+  let starImage = new Image();
+  starImage.src = '../assets/images/stars.png'
+  starImage.onload = () => {
+    window.starImage = starImage;
+  }
+  let waterImage = new Image();
+  waterImage.src = '../assets/images/water.png'
+  waterImage.onload = () => {
+    window.waterImage = waterImage;
+  }
   new Splash();
   window.sound = "AUDIO: ON";
 

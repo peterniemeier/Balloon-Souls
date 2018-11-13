@@ -259,15 +259,14 @@ class Game {
       document.getElementById("loading").style.display = "none";
       this.moveObjects(delta);
       this.checkCollisions();
-    } else if ((window.track.currentTime === 0) && (window.sound === "AUDIO: ON") && (this.begun === false)) {
+    } else if ((window.track.currentTime === 0) && (window.sound === "AUDIO: ON")) {
       document.getElementById("loading").style.display = "inherit";
-    } else if (window.sound === "AUDIO: OFF") {
+    } else if ((window.sound === "AUDIO: OFF") && (this.loadedAssets())) {
       this.begun = true;
       this.moveObjects(delta);
       this.checkCollisions();
     }
   }
-
 
   gameOver(){
     this.over = true;

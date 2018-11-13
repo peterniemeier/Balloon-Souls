@@ -15,15 +15,15 @@ class Star extends MovingObject {
     options.radius = DEFAULTS.RADIUS;
     options.vel = options.vel || Util.randomVec((3 * Math.random()) + 1);
     super(options);
-    let starImage = new Image();
-    starImage.src = '../assets/images/stars.png'
+    // let starImage = new Image();
+    // starImage.src = '../assets/images/stars.png'
     this.frameIndex = 0,
     this.tickCount = 0,
     this.width = 100,
     this.height = 20,
     this.numberOfFrames = 5,
     this.ticksPerFrame = 3,
-    this.starImage = starImage;
+    this.starImage = window.starImage;
 
   }
   update() {

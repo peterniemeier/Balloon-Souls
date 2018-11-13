@@ -20,8 +20,8 @@ class Fish extends MovingObject {
     options.radius = Fish.RADIUS;
     options.vel = options.vel || [0, 0];
     options.color = options.color || randomColor();
-    let fishImage = new Image();
-    fishImage.src = '../assets/images/fish.png'
+    // let fishImage = new Image();
+    // fishImage.src = '../assets/images/fish.png'
     super(options);
     this.hello = Fish.HELLO;
     this.name = 'Gilly';
@@ -31,7 +31,8 @@ class Fish extends MovingObject {
     this.height = 100,
     this.numberOfFrames = 6,
     this.ticksPerFrame = 8,
-    this.fishImage = fishImage;
+    this.fishImage = window.fishImage;
+
     // this.hello.play();
   }
 

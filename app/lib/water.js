@@ -14,8 +14,8 @@ class Water extends StaticObject {
     options.radius = DEFAULTS.RADIUS;
     options.vel = options.vel || Util.randomVec(DEFAULTS.SPEED);
     super(options);
-    let waterImage = new Image();
-    waterImage.src = '../assets/images/water.png'
+    // let waterImage = new Image();
+    // waterImage.src = '../assets/images/water.png'
 
     this.frameIndex = 0,
     this.tickCount = 0,
@@ -23,7 +23,7 @@ class Water extends StaticObject {
     this.height = 80,
     this.numberOfFrames = 2,
     this.ticksPerFrame = 10,
-    this.waterImage = waterImage;
+    this.waterImage = window.waterImage;
 
   }
   update() {

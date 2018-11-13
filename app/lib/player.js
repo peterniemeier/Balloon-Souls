@@ -18,20 +18,20 @@ class Player extends MovingObject {
     options.radius = Player.RADIUS;
     options.vel = options.vel || [0, 0];
     options.color = options.color || randomColor();
-    let playerImageLeft = new Image();
-    playerImageLeft.src = '../assets/images/player-left.png'
-
-    let playerImageRight = new Image();
-    playerImageRight.src = '../assets/images/player-right.png'
-
-    let playerImageLeftFlap = new Image();
-    playerImageLeftFlap.src = '../assets/images/player-left-flap.png'
-
-    let playerImageRightFlap = new Image();
-    playerImageRightFlap.src = '../assets/images/player-right-flap.png'
+    // let playerImageLeft = new Image();
+    // playerImageLeft.src = '../assets/images/player-left.png'
+    //
+    // let playerImageRight = new Image();
+    // playerImageRight.src = '../assets/images/player-right.png'
+    //
+    // let playerImageLeftFlap = new Image();
+    // playerImageLeftFlap.src = '../assets/images/player-left-flap.png'
+    //
+    // let playerImageRightFlap = new Image();
+    // playerImageRightFlap.src = '../assets/images/player-right-flap.png'
 
     super(options);
-    this.sprites = [playerImageLeft, playerImageRight, playerImageLeftFlap, playerImageRightFlap]
+    this.sprites = [window.playerImageLeft, window.playerImageRight, window.playerImageLeftFlap, window.playerImageRightFlap]
 
     this.isWrappable = false;
     this.frameIndex = 0,
@@ -43,6 +43,7 @@ class Player extends MovingObject {
     this.playerImage = this.sprites[0];
     this.flapping = false;
     this.flapCount = 0;
+
   }
 
   power(impulse) {
