@@ -52,14 +52,14 @@ class Splash {
         document.getElementById("getGoing").innerHTML = "";
 
 
-         let img = new Image();
-         img.src = '../assets/images/rpbg.png';
-         img.onload = () => {
+         // let img = new Image();
+         // img.src = '../assets/images/rpbg.png';
+         // img.onload = () => {
            // create pattern
-           var ptrn = this.ctx.createPattern(img, 'repeat'); // Create a pattern with this image, and set it to "repeat".
+           var ptrn = this.ctx.createPattern(window.img, 'repeat'); // Create a pattern with this image, and set it to "repeat".
            this.ctx.fillStyle = ptrn;
            this.ctx.fillRect(0, 0, this.canvasElw, this.canvasElh); // context.fillRect(x, y, width, height);
-         }
+         // }
          const game = new Game();
 
          new GameView(game, this.ctx, Splash).start();

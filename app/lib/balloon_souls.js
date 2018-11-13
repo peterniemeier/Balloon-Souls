@@ -30,12 +30,16 @@ const Splash = require("./splash");
 document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("content").style.display = "none";
 
+  let img = new Image();
+  img.src = '../assets/images/rpbg.png';
+  img.onload = () => {
+    window.img = img;
+  }
   let fishImage = new Image();
   fishImage.src = '../assets/images/fish.png'
   fishImage.onload = () => {
     window.fishImage = fishImage;
   }
-
   let playerImageLeft = new Image();
   playerImageLeft.src = '../assets/images/player-left.png'
   let playerImageRight = new Image();

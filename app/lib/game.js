@@ -116,6 +116,7 @@ class Game {
           this.play();
         }, false);
           window.track.load();
+          document.getElementById('btn').click();
           window.track.play();
       }
     }
